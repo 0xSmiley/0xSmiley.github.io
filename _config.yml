@@ -14,8 +14,7 @@ author: Nuno Lopes
 navbar-links:
   About Me: "aboutme"
   Resources:
-    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
-    - Learn markdown: "http://www.markdowntutorial.com/"
+    - Try hack me: "https://www.tryhackme.com/"
 #  Author's home: "http://deanattali.com"
 
 # --- Local development options ---
