@@ -11,3 +11,7 @@ Education:
 Experience:
   - Internship with Rigor @ Salvador Caetano devoloping a RPA
   - Researcher @ DCC in University of Porto working with Docker Security
+  
+ Interests:
+  -  Playing CTFs [xSTF](https://ctftime.org/team/15341).
+  -  Building [Android applications] (https://play.google.com/store/apps/developer?id=TEDStudios).
