@@ -13,5 +13,5 @@ Experience:
   - Researcher @ DCC in University of Porto working with Docker Security
   
  Interests:
-  -  Playing CTFs [xSTF](https://ctftime.org/team/15341).
-  -  Building [Android applications] (https://play.google.com/store/apps/developer?id=TEDStudios).
+  -  Playing CTFs with [xSTF](https://ctftime.org/team/15341).
+  -  Building [Android applications](https://play.google.com/store/apps/developer?id=TEDStudios).
