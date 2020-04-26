@@ -20,12 +20,12 @@ Learning Objectives:
 
 Initiate the VPN connection and deploy the machine
 
-## Task 2 => Impacket
+## Task 2 -> Impacket
 
 Install Impacket, this is a collection of Python classes for working with network protocols. More information abou Impacket and have and overview about some of its tool can be found [here](https://www.secureauth.com/labs/open-source-tools/impacket).  
 Have a look at [this](https://github.com/SecureAuthCorp/impacket.git) Github repository to learn how to install it.
 
-## Task 3 => Enumeration 1
+## Task 3 -> Enumeration 1
 
 We start by adding the IP address of our machine to the /etc/hosts
 
@@ -51,7 +51,7 @@ nmap -p53,80,88,135,139,389,445,464,593,636,3268,3269,3389 -A -T4 spookysec.loca
 
 From this scan we discover the Domain Name of the machine as well as the the full AD domain. 
 
-## Task 4 => Enumeration 2
+## Task 4 -> Enumeration 2
 
 Using enum4linux we are able to enumerate port 139 and 445.
 This tool output quite a lengthy output, we will only post the important parts for the walkthrough.
@@ -79,7 +79,7 @@ Kerbrute is a tool that performs Kerberos pre-auth bruteforcing, in this case we
 
 ![kerbrute](/img/2020-04-26-AttacktiveDir/kerbrute.png)
 
-## Task 5 => ASREPRoasting
+## Task 5 -> ASREPRoasting
 
 From the output we are able to validate some active usernames.
 Once we have discovered a list of usernames we can use a technique called ASREPRoasting, meaning if a user does not have the Kerberos preauthentication property selected it is possible to retrieve the password hash.
@@ -100,7 +100,7 @@ We have saved the previous hash in the hash.txt file.
 hashcat -m 18200 hash.txt passwordlist.txt --force
 ~~~
 
-## Task 6 => Enumeration 3
+## Task 6 -> Enumeration 3
 
 Having user credentials we can attempt to log into SMB and explore any shares from the domain controller.
 This is possible with the tool smbclient, make sure to use the user 'svc-admin' as well as the previous cracked password.
@@ -125,7 +125,7 @@ Looking at the content of the file we can see it is encoded with Base64. To deco
 base64 -d backup_credentials.txt
 ~~~
 
-## Task 7 => Elevating Privileges
+## Task 7 -> Elevating Privileges
 
 Using the backup account we can use another tool from Impacket this time called 'secretsdump.py', we will be able to get all the password hashes that this user account has access to.
 
