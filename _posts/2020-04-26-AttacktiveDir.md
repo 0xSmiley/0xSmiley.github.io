@@ -12,7 +12,7 @@ Initiate the VPN connection and deploy the machine
 ## Task 2 => Impacket
 
 Install Impacket, this is a collection of Python classes for working with network protocols. More information can be found [here](https://www.secureauth.com/labs/open-source-tools/impacket). 
-Have a look at (this)[https://github.com/SecureAuthCorp/impacket.git] Github repository to learn how to install it.
+Have a look at [this](https://github.com/SecureAuthCorp/impacket.git) Github repository to learn how to install it.
 
 ## Task 3 => Enumeration 1
 
@@ -28,4 +28,4 @@ Basic nmap scan to discover what we are working with
 nmap spookysec.local
 ~~~
 
-![nmap](img/2020-04-26-AttacktiveDir/nmap.png)
+![nmap](/img/2020-04-26-AttacktiveDir/nmap.png)
