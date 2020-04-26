@@ -75,3 +75,21 @@ Kerbrute is a tool that performs Kerberos pre-auth bruteforcing, in this case we
 ![kerbrute](/img/2020-04-26-AttacktiveDir/kerbrute.png)
 
 From the output we are able to validate some active usernames.
+Once we have discovered a list of usernames we can use a technique called ASREPRoasting, meaning if a user does not have the Kerberos preauthentication property selected it is possible to retrieve the password hash.
+Impacket provides a tool called GetNPUsers.py which can query the AD and if the property above is not selective it will export their TGT.
+
+~~~
+python3 GetNPUsers.py spookysec.local/svc-admin
+~~~
+
+![tgt](/img/2020-04-26-AttacktiveDir/tgt.png)
+
+We are able to retrieve a hash from the svc-admin account, we now proceed to crack the hash using hashcat. In order to discover the mode we can have a look at the [wiki page](https://hashcat.net/wiki/doku.php?id=example_hashes).
+We have saved the previous hash in the hash.txt file.
+
+**Note:** If you are using a VM the flag '--force' is required.
+
+~~~
+hashcat -m 18200 hash.txt passwordlist.txt --force
+~~~
+
