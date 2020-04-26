@@ -5,6 +5,14 @@ subtitle: Walkthrough
 tags: [active,directory]
 ---
 
+99% of Corporate networks run off of Active Directory from this machine you will have a good base understanding on how to exploit such an environment. 
+
+Learning Objectives:
+    - AD Enumeration
+    - Kerberos
+    - Cracking hashes
+    - Impacket
+
 ## Task 1
 
 Initiate the VPN connection and deploy the machine
@@ -29,3 +37,25 @@ nmap spookysec.local
 ~~~
 
 ![nmap](/img/2020-04-26-AttacktiveDir/nmap.png)
+
+Using the first scan we will use the port discovered and run a more complete scan.
+
+~~~
+nmap -p53,80,88,135,139,389,445,464,593,636,3268,3269,3389 -A -T4 spookysec.local
+~~
+
+![nmapa](/img/2020-04-26-AttacktiveDir/nmapA.png)
+
+From this scan we discover the Domain Name of the machine as well as the the full AD domain. 
+
+Using enum4linux we are able to enumerate port 139 and 445.
+This tool output quite a lengthy output, we will only post the important parts for the walkthrough.
+
+~~
+enum4linux -A  spookysec.local
+~~
+
+![enum](/img/2020-04-26-AttacktiveDir/enum.png)
+![enum2](/img/2020-04-26-AttacktiveDir/enum2.png)
+
+We managed to also retrieve information about the full AD domain name and the Domain Name of the machine plus some username that might be useful later. 
