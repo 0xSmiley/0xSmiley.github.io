@@ -27,3 +27,5 @@ Basic nmap scan to discover what we are working with
 ~~~
 nmap spookysec.local
 ~~~
+
+![nmap](img/2020-04-26-AttacktiveDir/nmap.png)
