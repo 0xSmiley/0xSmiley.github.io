@@ -42,7 +42,7 @@ Using the first scan we will use the port discovered and run a more complete sca
 
 ~~~
 nmap -p53,80,88,135,139,389,445,464,593,636,3268,3269,3389 -A -T4 spookysec.local
-~~
+~~~
 
 ![nmapa](/img/2020-04-26-AttacktiveDir/nmapA.png)
 
@@ -51,9 +51,9 @@ From this scan we discover the Domain Name of the machine as well as the the ful
 Using enum4linux we are able to enumerate port 139 and 445.
 This tool output quite a lengthy output, we will only post the important parts for the walkthrough.
 
-~~
+~~~
 enum4linux -A  spookysec.local
-~~
+~~~
 
 ![enum](/img/2020-04-26-AttacktiveDir/enum.png)
 ![enum2](/img/2020-04-26-AttacktiveDir/enum2.png)
@@ -62,15 +62,15 @@ We managed to also retrieve information about the full AD domain name and the Do
 
 We follow using the tool [Kerbrute](https://github.com/ropnop/kerbrute/), which can be installed using the following command:
 
-~~
+~~~
 go get github.com/ropnop/kerbrute
-~~
+~~~
 
 Kerbrute is a tool that performs Kerberos pre-auth bruteforcing, in this case we will be using the username bruteforce feature.
 
-~~
+~~~
 ~/go/bin/kerbrute userenum --dc spookysec.local -d spookysec.local userlist.txt
-~~
+~~~
 
 ![kerbrute](/img/2020-04-26-AttacktiveDir/kerbrute.png)
 
