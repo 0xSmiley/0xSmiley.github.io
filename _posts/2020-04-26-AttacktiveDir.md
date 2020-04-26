@@ -8,10 +8,13 @@ tags: [active,directory]
 99% of Corporate networks run off of Active Directory from this machine you will have a good base understanding on how to exploit such an environment. 
 
 Learning Objectives:
-    - AD Enumeration
-    - Kerberos
-    - Cracking hashes
-    - Impacket
+
+* AD Enumeration
+* Kerberos
+* Cracking Hashes
+* Impacket
+
+[Challenge](https://tryhackme.com/room/attacktivedirectory)
 
 ## Task 1
 
