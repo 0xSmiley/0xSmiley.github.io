@@ -3,7 +3,6 @@ layout: post
 title: Attacktive Directory – Try Hack Me
 subtitle: Walkthrough
 tags: [active,directory]
-comments: false
 ---
 
 ## Task 1
