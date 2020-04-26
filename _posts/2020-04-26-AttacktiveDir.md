@@ -59,3 +59,19 @@ enum4linux -A  spookysec.local
 ![enum2](/img/2020-04-26-AttacktiveDir/enum2.png)
 
 We managed to also retrieve information about the full AD domain name and the Domain Name of the machine plus some username that might be useful later. 
+
+We follow using the tool [Kerbrute](https://github.com/ropnop/kerbrute/), which can be installed using the following command:
+
+~~
+go get github.com/ropnop/kerbrute
+~~
+
+Kerbrute is a tool that performs Kerberos pre-auth bruteforcing, in this case we will be using the username bruteforce feature.
+
+~~
+~/go/bin/kerbrute userenum --dc spookysec.local -d spookysec.local userlist.txt
+~~
+
+![kerbrute](/img/2020-04-26-AttacktiveDir/kerbrute.png)
+
+From the output we are able to validate some active usernames.
