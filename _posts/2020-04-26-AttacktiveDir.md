@@ -48,6 +48,8 @@ nmap -p53,80,88,135,139,389,445,464,593,636,3268,3269,3389 -A -T4 spookysec.loca
 
 From this scan we discover the Domain Name of the machine as well as the the full AD domain. 
 
+## Task 4 => Enumeration 2
+
 Using enum4linux we are able to enumerate port 139 and 445.
 This tool output quite a lengthy output, we will only post the important parts for the walkthrough.
 
@@ -74,6 +76,8 @@ Kerbrute is a tool that performs Kerberos pre-auth bruteforcing, in this case we
 
 ![kerbrute](/img/2020-04-26-AttacktiveDir/kerbrute.png)
 
+## Task 5 => ASREPRoasting
+
 From the output we are able to validate some active usernames.
 Once we have discovered a list of usernames we can use a technique called ASREPRoasting, meaning if a user does not have the Kerberos preauthentication property selected it is possible to retrieve the password hash.
 Impacket provides a tool called GetNPUsers.py which can query the AD and if the property above is not selective it will export their TGT.
@@ -93,3 +97,49 @@ We have saved the previous hash in the hash.txt file.
 hashcat -m 18200 hash.txt passwordlist.txt --force
 ~~~
 
+## Task 6 => Enumeration 3
+
+Having user credentials we can attempt to log into SMB and explore any shares from the domain controller.
+This is possible with the tool smbclient, make sure to use the user 'svc-admin' as well as the previous cracked password.
+
+~~~
+smbclient -L spookysec.local --user svc-admin
+~~~
+
+![smb](/img/2020-04-26-AttacktiveDir/smb.png)
+
+After exploring several shares, we found the file 'backup_credentials.txt'. 
+
+~~~
+smbclient \\\\spookysec.local\\backup --user svc-admin
+~~~
+
+![smb2](/img/2020-04-26-AttacktiveDir/smb2.png)
+
+Looking at the content of the file we can see it is encoded with Base64. To decode it simply use the following command:
+
+~~~
+base64 -d backup_credentials.txt
+~~~
+
+## Task 7 => Elevating Privileges
+
+Using the backup account we can use another tool from Impacket this time called 'secretsdump.py', we will be able to get all the password hashes that this user account has access to.
+
+~~~
+python3 secretsdump.py -just-dc backup@spookysec.local
+~~~
+
+![secret](/img/2020-04-26-AttacktiveDir/secret.png)
+
+Now we are in possession of the Administrator password hash. The next step will be performing a [Pass the Hash Attack](https://attack.stealthbits.com/pass-the-hash-attack-explained). 
+For this we can use another tool from Impacket called 'psexec.py'. For this tool you must paste the complete Administrator hash in the following command:
+
+~~~
+python3 psexec.py Administrator:@spookysec.local -hashes <Complete Hash>
+~~~
+
+![rce](/img/2020-04-26-AttacktiveDir/rce.png)
+
+Congratulations, you now have complete access to the system, feel free to navigate to each user Desktop and get the flags.
+Hope you enjoyed this guide. :)
