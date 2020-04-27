@@ -2,7 +2,7 @@
 layout: post
 title: Attacktive Directory – Try Hack Me
 subtitle: Walkthrough
-tags: [active,directory]
+tags: [active,directory,windows]
 ---
 
 99% of Corporate networks run off Active Directory. From this machine you will have a basic understanding on how to exploit such an environment. 

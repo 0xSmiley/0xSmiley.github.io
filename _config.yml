@@ -1,5 +1,5 @@
 # --- Basic options --- #
-
+# Execute locally: bundle exec jekyll serve
 # Name of website
 title: Write Ups
 
@@ -76,11 +76,11 @@ excerpt_length: 50
 
 # Personalize the colors in your website. Colour values can be any valid CSS colour
 
-navbar-col: "#F5F5F5"
+navbar-col: "#F5F5F5" #Barra de cima
 navbar-text-col: "#404040"
 navbar-children-col: "#F5F5F5"
-page-col: "#FFFFFF"
-link-col: "#008AFF"
+page-col: "#FFFFFF" #Fundo
+link-col: "#008AFF" #Tags + Links
 hover-col: "#0085A1"
 footer-col: "#F5F5F5"
 footer-text-col: "#777777"
@@ -251,7 +251,3 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
-# Beautiful Jekyll / Dean Attali
-# 2fc73a3a967e97599c9763d05e564189
-
-theme: jekyll-theme-midnight
