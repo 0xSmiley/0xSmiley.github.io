@@ -4,14 +4,14 @@ title: About me
 subtitle: Nuno Lopes
 ---
 
-Education:
+## Education:
   - Bachelor in Computer Science
   - Masters in Information Security
 
-Experience:
+## Experience:
   - Internship with Rigor @ Salvador Caetano devoloping a RPA
   - Researcher @ DCC in University of Porto working with Docker Security
   
- Interests:
+## Interests:
   -  Playing CTFs with [xSTF](https://ctftime.org/team/15341).
   -  Building [Android applications](https://play.google.com/store/apps/developer?id=TEDStudios).
