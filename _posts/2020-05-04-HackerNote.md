@@ -68,7 +68,7 @@ hydra -l james -P wordlist.txt hackernote http-post-form "/api/user/login:userna
 ![hydra](/img/2020-05-04-HackerNote/hydra.png)
 
 Now that we discovered both the username and the password we can log into the user account.  
-From the notes get the user's ssh password
+From the notes get the user ssh password
 
 ![sshPass](/img/2020-05-04-HackerNote/sshPass.png)
 
