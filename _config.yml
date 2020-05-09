@@ -1,5 +1,5 @@
 # --- Basic options --- #
-# Execute locally: bundle exec jekyll serve
+# Execute locally: bundle exec jekyll serve 
 # Name of website
 title: Write Ups
 
