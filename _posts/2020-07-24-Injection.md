@@ -2,7 +2,7 @@
 layout: post
 title: Injection – Try Hack Me
 subtitle: Walkthrough
-tags: [LFI,Webapp]
+tags: [Command,Injection,Webapp]
 ---
 
 In this box you will learn about command injection from a blind and active perspective.
